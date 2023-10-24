@@ -1,10 +1,11 @@
-import express from "express";
+const express = require("express");
+const path = require("path");
 const app = express();
 
 // we can use a get,post,put,patch on the same path
 
 app.get("/", (req, res) => {
-  res.send("hello express here!");
+  res.sendFile(path.resolve(__dirname, "index.html"));
 });
 
 app.get("/something", (req, res) => {
@@ -14,6 +15,7 @@ app.get("/something", (req, res) => {
 app.post("/something", (req, res) => {
   res.send(" This is  usually not visible");
 });
-app.listen(3200, () => {
-  console.log("server listening and ready to go ");
+const port = 3200;
+app.listen(port, () => {
+  console.log(`server listening and ready to go ${port} `);
 });
