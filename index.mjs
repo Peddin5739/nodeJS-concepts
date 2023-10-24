@@ -1,11 +1,8 @@
-import http from "http";
-
-const server = http.createServer((req, res) => {
-  //send response body
-  res.write("hello client server created ");
-  console.log(req.url);
-  res.end();
+import express from "express";
+const app = express();
+app.get("/", (req, res) => {
+  res.send("hello express here!");
 });
-server.listen(3200, () => {
-  console.log("server running at port 3200 and localhost");
+app.listen(3200, () => {
+  console.log("server listening and ready to go ");
 });
